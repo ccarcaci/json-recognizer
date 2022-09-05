@@ -1,0 +1,37 @@
+{
+  "_id": "62097b2ca64bb50fe38c33a3",
+  "index": 5,
+  "guid": "13e7f11e-205a-46d4-9193-5d6c9fbbad37",
+  "isActive": true,
+  "balance": "$3,838.06",
+  "picture": "http://placehold.it/32x32",
+  "age": 38,
+  "eyeColor": "brown",
+  "name": "Saunders Miranda",
+  "gender": "male",
+  "company": "METROZ",
+  "email": "saundersmiranda@metroz.com",
+  "phone": "+1 (803) 599-2321",
+  "address": "179 Amboy Street, Bawcomville, Marshall Islands, 5389",
+  "about": "Deserunt non aute reprehenderit excepteur laborum consectetur cupidatat excepteur. Ipsum Lorem eiusmod nisi ad velit cillum velit excepteur qui reprehenderit sunt et officia. Sint deserunt proident elit irure sint. Sit quis laboris ea laborum consequat voluptate tempor. Enim magna et quis est adipisicing dolore culpa sint.\r\n",
+  "registered": "2014-01-05T09:34:24 -01:00",
+  "latitude": -47.99393,
+  "longitude": 57.37658,
+  "tags": ["deserunt", "pariatur", "cupidatat", "aliquip", "non", "consectetur", "anim"],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Liz Delgado"
+    },
+    {
+      "id": 1,
+      "name": "Socorro Mercer"
+    },
+    {
+      "id": 2,
+      "name": "Lucinda Byrd"
+    }
+  ],
+  "greeting": "Hello, Saunders Miranda! You have 3 unread messages.",
+  "favoriteFruit": "banana"
+}
