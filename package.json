@@ -1,0 +1,37 @@
+{
+  "name": "json-recognizer",
+  "version": "0.0.1",
+  "description": "Recognize JSONs inside string flow",
+  "main": "build/index.js",
+  "types": "build/ndex.d.ts",
+  "scripts": {
+    "allTests": "npm run discovery; npm run integration; npm run test",
+    "build": "tsc",
+    "discovery": "jest --passWithNoTests --runInBand --detectOpenHandles --config jest.config.discovery.js",
+    "integration": "jest --passWithNoTests --runInBand --detectOpenHandles --config jest.config.integration.js",
+    "start": "rm -rf build; tsc; node build/index.js",
+    "test": "jest --passWithNoTests --runInBand --detectOpenHandles"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ccarcaci/json-recognizer.git"
+  },
+  "keywords": [
+    "queue"
+  ],
+  "author": "ccarcaci",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ccarcaci/json-recognizer/issues"
+  },
+  "homepage": "https://github.com/ccarcaci/json-recognizer#readme",
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "@types/node": "^16.11.26",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.4"
+  },
+  "volta": {
+    "node": "16.17.0"
+  }
+}
