@@ -1,4 +1,4 @@
-import { recognizeJsonUseCase } from './recognizeJsonUseCase'
+import { initJsonRecognizer } from './initJsonRecognizer'
 import { parserWrapper } from './parserWrapper'
 
 jest.mock('./parserWrapper')
@@ -23,7 +23,7 @@ describe('JSON comes into chunks', () => {
       done: true,
     })
     const chunk = '{"foo":"bar"}'
-    const jsonsSequence = recognizeJsonUseCase()(chunk)
+    const jsonsSequence = initJsonRecognizer()(chunk)
 
     expect(parserWrapperMock).toBeCalledTimes(1)
     expect(parserWrapperMock).toBeCalledWith('{"foo":"bar"}', {
@@ -59,7 +59,7 @@ describe('JSON comes into chunks', () => {
       })
     const chunk = '{"foo":'
     const chunk2 = '"bar"}'
-    const parseFunction = recognizeJsonUseCase()
+    const parseFunction = initJsonRecognizer()
     const jsonsSequence = parseFunction(chunk)
     const jsonsSequence2 = parseFunction(chunk2)
 
@@ -121,7 +121,7 @@ describe('JSON comes into chunks', () => {
       })
     const chunk = 'az"}{"foo'
     const chunk2 = '":"bar"}{"ee'
-    const parseFunction = recognizeJsonUseCase()
+    const parseFunction = initJsonRecognizer()
     const jsonsSequence = parseFunction(chunk)
     const jsonsSequence2 = parseFunction(chunk2)
 
@@ -163,7 +163,7 @@ describe('JSON comes into chunks', () => {
         done: true,
       })
     const chunk = 'randomchunk'
-    const parseFunction = recognizeJsonUseCase()
+    const parseFunction = initJsonRecognizer()
     const jsonsSequence = parseFunction(chunk)
 
     expect(jsonsSequence).toEqual([{ the: 'json' }, { another: 'json' }])

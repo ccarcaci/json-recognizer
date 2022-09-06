@@ -1,4 +1,4 @@
-import { ParsingType } from './types/ParsingType'
+import { ParsingType } from '../types/ParsingType'
 
 function* jsonChunkParserGenerator(chunk: string, prevParsing: ParsingType): Generator<ParsingType, ParsingType> {
   let parsing: ParsingType = prevParsing

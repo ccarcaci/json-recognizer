@@ -1,5 +1,5 @@
 import { jsonChunkParserGenerator } from './jsonChunkParser'
-import { ParsingType } from './types/ParsingType'
+import { ParsingType } from '../types/ParsingType'
 
 export type ParseFunctionType = () => IteratorResult<ParsingType, ParsingType>
 

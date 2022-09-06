@@ -1,8 +1,8 @@
 import stream from 'stream'
-import { recognizeJsonUseCase } from './recognizeJsonUseCase'
+import { initJsonRecognizer } from '../recognizer/initJsonRecognizer'
 
-const recognizeJsonStage = (): stream.Transform => {
-  const parseChunkFunction = recognizeJsonUseCase()
+const recognizeJsonTransformStream = (): stream.Transform => {
+  const parseChunkFunction = initJsonRecognizer()
   return new stream.Transform({
     readableObjectMode: true,
     writableObjectMode: true,
@@ -14,4 +14,4 @@ const recognizeJsonStage = (): stream.Transform => {
   })
 }
 
-export { recognizeJsonStage }
+export { recognizeJsonTransformStream }

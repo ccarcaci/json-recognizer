@@ -1,5 +1,5 @@
 import { jsonChunkParserGenerator } from './jsonChunkParser'
-import { ParsingType } from './types/ParsingType'
+import { ParsingType } from '../types/ParsingType'
 
 describe('Pure function that recognizes JSON coming in chunks', () => {
   test('Receive full fledge JSON in a string', () => {

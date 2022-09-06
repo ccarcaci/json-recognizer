@@ -1,7 +1,7 @@
 import { jsonChunkParserGenerator } from './jsonChunkParser'
-import { ParsingType } from './types/ParsingType'
+import { ParsingType } from '../types/ParsingType'
 
-import randomBig from '../testAssets/randomBig.json'
+import randomBig from '../../testAssets/randomBig.json'
 
 describe('Pass big random JSON to the parser', () => {
   test('Random big JSON', () => {

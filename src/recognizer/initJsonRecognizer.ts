@@ -1,9 +1,8 @@
 import { ParseFunctionType, parserWrapper } from './parserWrapper'
-import { ParsingType } from './types/ParsingType'
+import { ParsingType } from '../types/ParsingType'
+import { RecognizeJsonFunctionType } from '../types/RecognizeJsonFunctionType'
 
-type RecognizeJsonFunctionType = (chunk: string) => Record<string, unknown>[]
-
-const recognizeJsonUseCase = (): RecognizeJsonFunctionType => {
+const initJsonRecognizer = (): RecognizeJsonFunctionType => {
   let currentParsing: ParsingType = {
     openParens: 0,
     openQuote: false,
@@ -52,4 +51,4 @@ const iterateParsing = (
 
 // --
 
-export { recognizeJsonUseCase }
+export { initJsonRecognizer }
