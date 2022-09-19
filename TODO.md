@@ -10,6 +10,7 @@
   - Use library against test vector.
   - Use library with streams.
 - Create README.md.
+  - Provide some examples in README.
 - Publish to npm.
 - Create pipeline with Github actions to publish to npm.
   - https://github.com/features/actions

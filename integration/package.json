@@ -1,0 +1,31 @@
+{
+  "name": "@bitacode/json-recognizer-integration",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "tsc",
+    "preinstall": "cd ..; npm install; tsc; cp LICENSE build; cp package.json build; cd build; npm pack --pack-destination ../integration; cd ../integration",
+    "start": "tsc; node build/index.js",
+    "test": "tsc; node build/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ccarcaci/json-recognizer.git"
+  },
+  "author": "ccarcaci",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ccarcaci/json-recognizer/issues"
+  },
+  "homepage": "https://github.com/ccarcaci/json-recognizer#readme",
+  "devDependencies": {
+    "@types/node": "^16.11.59"
+  },
+  "dependencies": {
+    "@bitacode/json-recognizer": "file:bitacode-json-recognizer-0.0.1.tgz"
+  },
+  "volta": {
+    "node": "16.17.0"
+  }
+}
