@@ -10,6 +10,7 @@ const initJsonRecognizer = (): RecognizeJsonFunctionType => {
     status: 'START',
   }
 
+  // recognize() function.
   return (chunk: string) => {
     const parse = parserWrapper(chunk, currentParsing)
     let { iteratorResult, recognizedJsons } = iterateParsing([], parse)

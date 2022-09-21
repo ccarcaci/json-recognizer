@@ -4,6 +4,7 @@
 
 - OK / Create index.ts to export function.
   - OK / Rename functions/modules.
+- Add comments to explain the code.
 - Provide some integration tests.
   - Create library package.
   - Import library package to a project.
