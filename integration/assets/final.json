@@ -1,0 +1,28 @@
+"latitude": 72.505205,
+"longitude": 63.642761,
+"tags": [
+"deserunt",
+"laboris",
+"cillum",
+"ea",
+"nisi",
+"pariatur",
+"consectetur"
+],
+"friends": [
+{
+"id": 0,
+"name": "Talley Guerrero"
+},
+{
+"id": 1,
+"name": "Celia Franklin"
+},
+{
+"id": 2,
+"name": "Holman Roberson"
+}
+],
+"greeting": "Hello, Greta Robertson! You have 1 unread messages.",
+"favoriteFruit": "apple"
+}

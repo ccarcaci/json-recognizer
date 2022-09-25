@@ -23,6 +23,27 @@ describe('Pure function that recognizes JSON coming in chunks', () => {
     })
   })
 
+  test('Receive full fledge JSON in a string with trailing new lines', () => {
+    const currentParsing: ParsingType = {
+      openParens: 0,
+      openQuote: false,
+      partial: '',
+      status: 'START',
+    }
+    const jsonChunkParser = jsonChunkParserGenerator('{}\n\n', currentParsing)
+    const result = jsonChunkParser.next()
+
+    expect(result).toEqual({
+      value: {
+        openParens: 0,
+        openQuote: false,
+        partial: '{}',
+        status: 'RECOGNIZED',
+      },
+      done: true,
+    })
+  })
+
   test('Receive two JSONs within a single chunk', () => {
     const currentParsing: ParsingType = {
       openParens: 0,

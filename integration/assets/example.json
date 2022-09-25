@@ -1,0 +1,45 @@
+{
+  "_id": "632f565eb06db77a6cf96856",
+  "index": 0,
+  "guid": "f74f39bf-533a-4d21-8f31-047a4ca6163c",
+  "isActive": true,
+  "balance": "$3,050.05",
+  "picture": "http://placehold.it/32x32",
+  "age": 24,
+  "eyeColor": "green",
+  "name": "Greta Robertson",
+  "gender": "female",
+  "company": "PROFLEX",
+  "email": "gretarobertson@proflex.com",
+  "phone": "+1 (994) 408-2042",
+  "address": "354 Stratford Road, Hoagland, South Carolina, 2686",
+  "about": "Non labore ad ut nostrud excepteur duis. Pariatur cillum magna eiusmod est quis anim ipsum commodo nulla cupidatat. Pariatur fugiat officia ad anim veniam et aute proident nisi proident aliqua nostrud. Incididunt amet do veniam magna. Enim sunt sunt proident non. Duis nisi aliquip elit commodo sit incididunt nisi dolor. Amet magna reprehenderit ut mollit sint laboris excepteur reprehenderit ipsum tempor sint laboris.\r\n",
+  "registered": "2020-02-25T12:14:53 -01:00",
+  "latitude": 72.505205,
+  "longitude": 63.642761,
+  "tags": [
+    "deserunt",
+    "laboris",
+    "cillum",
+    "ea",
+    "nisi",
+    "pariatur",
+    "consectetur"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Talley Guerrero"
+    },
+    {
+      "id": 1,
+      "name": "Celia Franklin"
+    },
+    {
+      "id": 2,
+      "name": "Holman Roberson"
+    }
+  ],
+  "greeting": "Hello, Greta Robertson! You have 1 unread messages.",
+  "favoriteFruit": "apple"
+}

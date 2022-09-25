@@ -17,5 +17,5 @@
     "strict": true,
     "target": "ES2020"
   },
-  "include": ["example", "integration", "src", "test"]
+  "include": ["src", "assets"]
 }

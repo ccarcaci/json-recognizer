@@ -1,9 +1,7 @@
-import { initJsonRecognizer } from '@bitacode/json-recognizer'
+import { testSingleJson } from './cases/testSingleJson'
 
 console.log('Launching integration tests')
 
-const parseFunction = initJsonRecognizer()
-const recognizedJson = parseFunction('{"foo":"bar"}')
+testSingleJson()
 
-console.log(`Recognized JSON: ${JSON.stringify(recognizedJson)}`)
 console.log('Integration tests done')

@@ -3,11 +3,12 @@ import { ParsingType } from '../types/ParsingType'
 function* jsonChunkParserGenerator(chunk: string, prevParsing: ParsingType): Generator<ParsingType, ParsingType> {
   let parsing: ParsingType = prevParsing
   let index = 0
+  const chunkTrimmed = chunk.trim()
 
-  while (index < chunk.length) {
-    const current = chunk[index]
+  while (index < chunkTrimmed.length) {
+    const current = chunkTrimmed[index]
     if (current === '"') {
-      parsing.openQuote = detectOpenQuote(parsing.openQuote, chunk[index - 1])
+      parsing.openQuote = detectOpenQuote(parsing.openQuote, chunkTrimmed[index - 1])
     }
 
     let newParsing = detectParsingStatus(current, parsing)
@@ -17,7 +18,7 @@ function* jsonChunkParserGenerator(chunk: string, prevParsing: ParsingType): Gen
       yield parsing
     }
 
-    if (newParsing.status === 'RECOGNIZED' && index < chunk.length) {
+    if (newParsing.status === 'RECOGNIZED' && index < chunkTrimmed.length) {
       yield newParsing
     }
 
