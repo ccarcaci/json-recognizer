@@ -1,0 +1,45 @@
+{
+  "_id": "6331e89200c2e38b940a1336",
+  "index": 4,
+  "guid": "50faed5a-490d-4356-8537-80098c3ac275",
+  "isActive": true,
+  "balance": "$3,600.35",
+  "picture": "http://placehold.it/32x32",
+  "age": 28,
+  "eyeColor": "green",
+  "name": "Lott Bridges",
+  "gender": "male",
+  "company": "TECHMANIA",
+  "email": "lottbridges@techmania.com",
+  "phone": "+1 (865) 443-2436",
+  "address": "658 Quincy Street, Davenport, Guam, 8387",
+  "about": "Culpa eu id ullamco laborum proident sunt est. Consectetur duis ullamco irure duis mollit deserunt aute cillum voluptate deserunt est incididunt laboris ea. Excepteur minim Lorem velit nostrud cupidatat velit eiusmod do sint incididunt excepteur. Consequat anim pariatur excepteur amet quis dolore nostrud incididunt.\r\n",
+  "registered": "2016-02-26T09:15:21 -01:00",
+  "latitude": -62.948052,
+  "longitude": 1.138903,
+  "tags": [
+    "ea",
+    "eu",
+    "ea",
+    "elit",
+    "cupidatat",
+    "veniam",
+    "consequat"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Sawyer Molina"
+    },
+    {
+      "id": 1,
+      "name": "Kirk Lynn"
+    },
+    {
+      "id": 2,
+      "name": "Olsen Vinson"
+    }
+  ],
+  "greeting": "Hello, Lott Bridges! You have 6 unread messages.",
+  "favoriteFruit": "banana"
+}

@@ -168,4 +168,34 @@ describe('JSON comes into chunks', () => {
 
     expect(jsonsSequence).toEqual([{ the: 'json' }, { another: 'json' }])
   })
+
+  // |==| |==|
+  test('Parse multiple chunks, discard previous recognized JSONs', () => {
+    parseMock.mockReturnValueOnce({
+      value: {
+        openParens: 0,
+        openQuote: false,
+        partial: '{"the": "json"}',
+        status: 'RECOGNIZED',
+      },
+      done: true,
+    })
+    parseMock.mockReturnValueOnce({
+      value: {
+        openParens: 0,
+        openQuote: false,
+        partial: '{"another": "json"}',
+        status: 'RECOGNIZED',
+      },
+      done: true,
+    })
+    const chunk = 'thejson'
+    const chunk2 = 'anotherjson'
+    const parseFunction = initJsonRecognizer()
+    const jsonsSequence = parseFunction(chunk)
+    const jsonsSequence2 = parseFunction(chunk2)
+
+    expect(jsonsSequence).toEqual([{ the: 'json' }])
+    expect(jsonsSequence2).toEqual([{ another: 'json' }])
+  })
 })
