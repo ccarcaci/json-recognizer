@@ -4,6 +4,7 @@ import { initJsonRecognizer } from '@bitacode/json-recognizer'
 import { readFile } from '../util/readFile'
 import { formatJson } from '../util/formatJson'
 
+// |== ==|
 const testMultipleChunks = () => {
   const partialString = readFile(__dirname + '/../../assets/partial.json')
   const finalString = readFile(__dirname + '/../../assets/final.json')

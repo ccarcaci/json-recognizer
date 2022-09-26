@@ -14,9 +14,8 @@
   - OK / IT single json. |==|
   - OK / IT multiple jsons. |==| |==|
   - OK / IT multiple chunks. |== ==|
-  - IT multiple jsons, multiple chunks. |== ==| |== ==|
-  - IT partial json. |==
-  - IT invalid json. ==|
+  - OK / IT partial json. |==
+  - OK / IT invalid json. ==|
   - IT json array. [|==|,|==|]
 - Create README.md.
   - Provide some examples in README.
