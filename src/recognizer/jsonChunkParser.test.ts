@@ -4,7 +4,8 @@ import { ParsingType } from '../types/ParsingType'
 describe('Pure function that recognizes JSON coming in chunks', () => {
   test('Receive full fledge JSON in a string', () => {
     const currentParsing: ParsingType = {
-      openParens: 0,
+      openBrackets: 0,
+      openSquares: 0,
       openQuote: false,
       partial: '',
       status: 'START',
@@ -14,7 +15,8 @@ describe('Pure function that recognizes JSON coming in chunks', () => {
 
     expect(result).toEqual({
       value: {
-        openParens: 0,
+        openBrackets: 0,
+        openSquares: 0,
         openQuote: false,
         partial: '{}',
         status: 'RECOGNIZED',
@@ -25,7 +27,8 @@ describe('Pure function that recognizes JSON coming in chunks', () => {
 
   test('Receive full fledge JSON in a string with trailing new lines', () => {
     const currentParsing: ParsingType = {
-      openParens: 0,
+      openBrackets: 0,
+      openSquares: 0,
       openQuote: false,
       partial: '',
       status: 'START',
@@ -35,7 +38,8 @@ describe('Pure function that recognizes JSON coming in chunks', () => {
 
     expect(result).toEqual({
       value: {
-        openParens: 0,
+        openBrackets: 0,
+        openSquares: 0,
         openQuote: false,
         partial: '{}',
         status: 'RECOGNIZED',
@@ -46,7 +50,8 @@ describe('Pure function that recognizes JSON coming in chunks', () => {
 
   test('Receive two JSONs within a single chunk', () => {
     const currentParsing: ParsingType = {
-      openParens: 0,
+      openBrackets: 0,
+      openSquares: 0,
       openQuote: false,
       partial: '',
       status: 'START',
@@ -57,7 +62,8 @@ describe('Pure function that recognizes JSON coming in chunks', () => {
 
     expect(result).toEqual({
       value: {
-        openParens: 0,
+        openBrackets: 0,
+        openSquares: 0,
         openQuote: false,
         partial: '{}',
         status: 'RECOGNIZED',
@@ -66,7 +72,8 @@ describe('Pure function that recognizes JSON coming in chunks', () => {
     })
     expect(result2).toEqual({
       value: {
-        openParens: 0,
+        openBrackets: 0,
+        openSquares: 0,
         openQuote: false,
         partial: '{}',
         status: 'RECOGNIZED',
@@ -80,7 +87,8 @@ describe('Pure function that recognizes JSON coming in chunks', () => {
       foo: '{{',
     }
     const currentParsing: ParsingType = {
-      openParens: 0,
+      openBrackets: 0,
+      openSquares: 0,
       openQuote: false,
       partial: '',
       status: 'START',
@@ -90,7 +98,8 @@ describe('Pure function that recognizes JSON coming in chunks', () => {
 
     expect(result).toEqual({
       value: {
-        openParens: 0,
+        openBrackets: 0,
+        openSquares: 0,
         openQuote: false,
         partial: JSON.stringify(jsonExample),
         status: 'RECOGNIZED',
@@ -104,7 +113,8 @@ describe('Pure function that recognizes JSON coming in chunks', () => {
       foo: '"quoted"',
     }
     const currentParsing: ParsingType = {
-      openParens: 0,
+      openBrackets: 0,
+      openSquares: 0,
       openQuote: false,
       partial: '',
       status: 'START',
@@ -114,7 +124,8 @@ describe('Pure function that recognizes JSON coming in chunks', () => {
 
     expect(result).toEqual({
       value: {
-        openParens: 0,
+        openBrackets: 0,
+        openSquares: 0,
         openQuote: false,
         partial: JSON.stringify(jsonExample),
         status: 'RECOGNIZED',
@@ -125,7 +136,8 @@ describe('Pure function that recognizes JSON coming in chunks', () => {
 
   test('Chunk has closing JSON first', () => {
     const currentParsing: ParsingType = {
-      openParens: 0,
+      openBrackets: 0,
+      openSquares: 0,
       openQuote: false,
       partial: '',
       status: 'START',
@@ -136,7 +148,8 @@ describe('Pure function that recognizes JSON coming in chunks', () => {
 
     expect(result).toEqual({
       value: {
-        openParens: -1,
+        openBrackets: -1,
+        openSquares: 0,
         openQuote: false,
         partial: '}',
         status: 'ERROR',
@@ -145,7 +158,8 @@ describe('Pure function that recognizes JSON coming in chunks', () => {
     })
     expect(result2).toEqual({
       value: {
-        openParens: 0,
+        openBrackets: 0,
+        openSquares: 0,
         openQuote: false,
         partial: '{ foo: "bar" }',
         status: 'RECOGNIZED',
@@ -156,7 +170,8 @@ describe('Pure function that recognizes JSON coming in chunks', () => {
 
   test('Chunks contains two halves of JSON', () => {
     const currentParsing: ParsingType = {
-      openParens: 0,
+      openBrackets: 0,
+      openSquares: 0,
       openQuote: false,
       partial: '',
       status: 'START',
@@ -167,7 +182,8 @@ describe('Pure function that recognizes JSON coming in chunks', () => {
 
     expect(result).toEqual({
       value: {
-        openParens: -1,
+        openBrackets: -1,
+        openSquares: 0,
         openQuote: false,
         partial: 'az"}',
         status: 'ERROR',
@@ -176,7 +192,8 @@ describe('Pure function that recognizes JSON coming in chunks', () => {
     })
     expect(result2).toEqual({
       value: {
-        openParens: 1,
+        openBrackets: 1,
+        openSquares: 0,
         openQuote: true,
         partial: '{"foo',
         status: 'PROGRESS',

@@ -18,9 +18,9 @@ const testMultipleChunks = () => {
 
   assert(recognizedJsons2.length === 1)
 
-  const recognizedJsonString = JSON.stringify(recognizedJsons2[0])
+  const recognizedJson2String = JSON.stringify(recognizedJsons2[0])
 
-  assert(jsonStringFormatted === recognizedJsonString)
+  assert(jsonStringFormatted === recognizedJson2String)
 
   console.log('testMultipleChunks / OK')
 }

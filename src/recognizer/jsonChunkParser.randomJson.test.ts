@@ -6,7 +6,8 @@ import randomBig from '../../testAssets/randomBig.json'
 describe('Pass big random JSON to the parser', () => {
   test('Random big JSON', () => {
     const currentParsing: ParsingType = {
-      openParens: 0,
+      openBrackets: 0,
+      openSquares: 0,
       openQuote: false,
       partial: '',
       status: 'START',
@@ -16,7 +17,8 @@ describe('Pass big random JSON to the parser', () => {
 
     expect(result).toEqual({
       value: {
-        openParens: 0,
+        openBrackets: 0,
+        openSquares: 0,
         openQuote: false,
         partial: JSON.stringify(randomBig),
         status: 'RECOGNIZED',
@@ -27,7 +29,8 @@ describe('Pass big random JSON to the parser', () => {
 
   test('Random invalid big JSON', () => {
     const currentParsing: ParsingType = {
-      openParens: 0,
+      openBrackets: 0,
+      openSquares: 0,
       openQuote: false,
       partial: '',
       status: 'START',
@@ -37,7 +40,8 @@ describe('Pass big random JSON to the parser', () => {
 
     expect(result).toEqual({
       value: {
-        openParens: 0,
+        openBrackets: 0,
+        openSquares: 0,
         openQuote: false,
         partial: INVALID_RECOGNIZED_JSON,
         status: 'RECOGNIZED',
@@ -48,7 +52,8 @@ describe('Pass big random JSON to the parser', () => {
 
   test('Pass multiple chunks, real use case', () => {
     const currentParsing: ParsingType = {
-      openParens: 0,
+      openBrackets: 0,
+      openSquares: 0,
       openQuote: false,
       partial: '',
       status: 'START',
@@ -63,7 +68,8 @@ describe('Pass big random JSON to the parser', () => {
 
     expect(result).toEqual({
       value: {
-        openParens: 1,
+        openBrackets: 1,
+        openSquares: 0,
         openQuote: true,
         partial: chunk,
         status: 'PROGRESS',
@@ -72,7 +78,8 @@ describe('Pass big random JSON to the parser', () => {
     })
     expect(result2).toEqual({
       value: {
-        openParens: 1,
+        openBrackets: 1,
+        openSquares: 0,
         openQuote: false,
         partial: chunk + chunk2,
         status: 'PROGRESS',
@@ -81,7 +88,8 @@ describe('Pass big random JSON to the parser', () => {
     })
     expect(result3).toEqual({
       value: {
-        openParens: 0,
+        openBrackets: 0,
+        openSquares: 0,
         openQuote: false,
         partial: chunk + chunk2 + partialChunk3,
         status: 'RECOGNIZED',
@@ -90,7 +98,8 @@ describe('Pass big random JSON to the parser', () => {
     })
     expect(result4).toEqual({
       value: {
-        openParens: 1,
+        openBrackets: 1,
+        openSquares: 0,
         openQuote: false,
         partial: finalChunk3,
         status: 'PROGRESS',

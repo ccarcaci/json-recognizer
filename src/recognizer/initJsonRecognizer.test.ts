@@ -15,7 +15,8 @@ describe('JSON comes into chunks', () => {
   test('Recognize JSON coming in single chunk', () => {
     parseMock.mockReturnValue({
       value: {
-        openParens: 0,
+        openBrackets: 0,
+        openSquares: 0,
         openQuote: false,
         partial: '{"foo":"bar"}',
         status: 'RECOGNIZED',
@@ -27,7 +28,8 @@ describe('JSON comes into chunks', () => {
 
     expect(parserWrapperMock).toBeCalledTimes(1)
     expect(parserWrapperMock).toBeCalledWith('{"foo":"bar"}', {
-      openParens: 0,
+      openBrackets: 0,
+      openSquares: 0,
       openQuote: false,
       partial: '',
       status: 'START',
@@ -41,7 +43,8 @@ describe('JSON comes into chunks', () => {
     parseMock
       .mockReturnValueOnce({
         value: {
-          openParens: 1,
+          openBrackets: 1,
+          openSquares: 0,
           openQuote: false,
           partial: '{"foo":',
           status: 'PROGRESS',
@@ -50,7 +53,8 @@ describe('JSON comes into chunks', () => {
       })
       .mockReturnValue({
         value: {
-          openParens: 0,
+          openBrackets: 0,
+          openSquares: 0,
           openQuote: false,
           partial: '{"foo":"bar"}',
           status: 'RECOGNIZED',
@@ -64,13 +68,15 @@ describe('JSON comes into chunks', () => {
     const jsonsSequence2 = parseFunction(chunk2)
 
     expect(parserWrapperMock).toHaveBeenNthCalledWith(1, '{"foo":', {
-      openParens: 0,
+      openBrackets: 0,
+      openSquares: 0,
       openQuote: false,
       partial: '',
       status: 'START',
     })
     expect(parserWrapperMock).toHaveBeenNthCalledWith(2, '"bar"}', {
-      openParens: 1,
+      openBrackets: 1,
+      openSquares: 0,
       openQuote: false,
       partial: '{"foo":',
       status: 'PROGRESS',
@@ -85,7 +91,8 @@ describe('JSON comes into chunks', () => {
     parseMock
       .mockReturnValueOnce({
         value: {
-          openParens: -1,
+          openBrackets: -1,
+          openSquares: 0,
           openQuote: true,
           partial: 'az"}',
           status: 'ERROR',
@@ -94,7 +101,8 @@ describe('JSON comes into chunks', () => {
       })
       .mockReturnValueOnce({
         value: {
-          openParens: 1,
+          openBrackets: 1,
+          openSquares: 0,
           openQuote: true,
           partial: '{"foo',
           status: 'PROGRESS',
@@ -103,7 +111,8 @@ describe('JSON comes into chunks', () => {
       })
       .mockReturnValueOnce({
         value: {
-          openParens: 0,
+          openBrackets: 0,
+          openSquares: 0,
           openQuote: false,
           partial: '{"foo":"bar"}',
           status: 'RECOGNIZED',
@@ -112,7 +121,8 @@ describe('JSON comes into chunks', () => {
       })
       .mockReturnValueOnce({
         value: {
-          openParens: 1,
+          openBrackets: 1,
+          openSquares: 0,
           openQuote: true,
           partial: '{"ee',
           status: 'PROGRESS',
@@ -126,13 +136,15 @@ describe('JSON comes into chunks', () => {
     const jsonsSequence2 = parseFunction(chunk2)
 
     expect(parserWrapperMock).toHaveBeenNthCalledWith(1, 'az"}{"foo', {
-      openParens: 0,
+      openBrackets: 0,
+      openSquares: 0,
       openQuote: false,
       partial: '',
       status: 'START',
     })
     expect(parserWrapperMock).toHaveBeenNthCalledWith(2, '":"bar"}{"ee', {
-      openParens: 1,
+      openBrackets: 1,
+      openSquares: 0,
       openQuote: true,
       partial: '{"foo',
       status: 'PROGRESS',
@@ -146,7 +158,8 @@ describe('JSON comes into chunks', () => {
     parseMock
       .mockReturnValueOnce({
         value: {
-          openParens: 0,
+          openBrackets: 0,
+          openSquares: 0,
           openQuote: false,
           partial: '{"the": "json"}',
           status: 'RECOGNIZED',
@@ -155,7 +168,8 @@ describe('JSON comes into chunks', () => {
       })
       .mockReturnValueOnce({
         value: {
-          openParens: 0,
+          openBrackets: 0,
+          openSquares: 0,
           openQuote: false,
           partial: '{"another": "json"}',
           status: 'RECOGNIZED',
@@ -173,7 +187,8 @@ describe('JSON comes into chunks', () => {
   test('Parse multiple chunks, discard previous recognized JSONs', () => {
     parseMock.mockReturnValueOnce({
       value: {
-        openParens: 0,
+        openBrackets: 0,
+        openSquares: 0,
         openQuote: false,
         partial: '{"the": "json"}',
         status: 'RECOGNIZED',
@@ -182,7 +197,8 @@ describe('JSON comes into chunks', () => {
     })
     parseMock.mockReturnValueOnce({
       value: {
-        openParens: 0,
+        openBrackets: 0,
+        openSquares: 0,
         openQuote: false,
         partial: '{"another": "json"}',
         status: 'RECOGNIZED',

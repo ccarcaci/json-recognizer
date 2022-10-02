@@ -39,16 +39,17 @@ const detectOpenQuote = (openQuote: boolean, previousChar: string): boolean => {
 }
 
 const detectParsingStatus = (current: string, parsing: ParsingType): ParsingType => {
-  let { openParens, partial, status } = parsing
+  let { openBrackets, openSquares, partial, status } = parsing
   partial += current
 
   if (parsing.openQuote && parsing.status !== 'ERROR') {
     return { ...parsing, partial }
   }
 
-  if (parsing.status === 'START' && !['{', '}'].includes(current)) {
+  if (parsing.status === 'START' && !['{', '['].includes(current)) {
     return {
-      openParens,
+      openBrackets,
+      openSquares,
       openQuote: false,
       partial,
       status: 'ERROR',
@@ -56,21 +57,46 @@ const detectParsingStatus = (current: string, parsing: ParsingType): ParsingType
   }
 
   if (current === '{') {
-    openParens = Math.max(1, openParens + 1)
-    partial = openParens === 1 ? '{' : partial
+    openBrackets = Math.max(1, openBrackets + 1)
+    partial = openBrackets + openSquares === 1 ? '{' : partial
     return {
-      openParens,
+      openBrackets,
+      openSquares,
       openQuote: false,
       partial,
       status: 'PROGRESS',
     }
   }
   if (current === '}') {
-    openParens--
-    status = openParens < 0 ? 'ERROR' : openParens === 0 ? 'RECOGNIZED' : 'PROGRESS'
+    openBrackets--
+    status = detectNewStatus(openBrackets, openSquares)
 
     return {
-      openParens,
+      openBrackets,
+      openSquares,
+      openQuote: false,
+      partial,
+      status,
+    }
+  }
+  if (current === '[') {
+    openSquares = Math.max(1, openSquares + 1)
+    partial = openBrackets + openSquares === 1 ? '[' : partial
+    return {
+      openBrackets,
+      openSquares,
+      openQuote: false,
+      partial,
+      status: 'PROGRESS',
+    }
+  }
+  if (current === ']') {
+    openSquares--
+    status = detectNewStatus(openBrackets, openSquares)
+
+    return {
+      openBrackets,
+      openSquares,
       openQuote: false,
       partial,
       status,
@@ -78,12 +104,16 @@ const detectParsingStatus = (current: string, parsing: ParsingType): ParsingType
   }
 
   return {
-    openParens,
+    openBrackets,
+    openSquares,
     openQuote: false,
     partial,
     status,
   }
 }
+
+const detectNewStatus = (openBrackets: number, openSquares: number): 'RECOGNIZED' | 'PROGRESS' | 'ERROR' =>
+  openBrackets < 0 || openSquares < 0 ? 'ERROR' : openBrackets === 0 && openSquares === 0 ? 'RECOGNIZED' : 'PROGRESS'
 
 // --
 
