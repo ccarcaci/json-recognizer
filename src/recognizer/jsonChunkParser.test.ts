@@ -184,4 +184,72 @@ describe('Pure function that recognizes JSON coming in chunks', () => {
       done: true,
     })
   })
+
+  test('Chunks are sent in separated slots', () => {
+    const currentParsing: ParsingType = {
+      openParens: 0,
+      openQuote: false,
+      partial: '',
+      status: 'START',
+    }
+    const jsonChunkParser = jsonChunkParserGenerator('{ "foo": "bar" }', currentParsing)
+    const result = jsonChunkParser.next()
+
+    const currentParsing2 = result.value
+    const jsonChunkParser2 = jsonChunkParserGenerator('{ "eenie": "meenie" }', currentParsing2)
+    const result2 = jsonChunkParser2.next()
+
+    expect(result).toEqual({
+      value: {
+        openParens: 0,
+        openQuote: false,
+        partial: '{ "foo": "bar" }',
+        status: 'RECOGNIZED',
+      },
+      done: true,
+    })
+    expect(result2).toEqual({
+      value: {
+        openParens: 0,
+        openQuote: false,
+        partial: '{ "eenie": "meenie" }',
+        status: 'RECOGNIZED',
+      },
+      done: true,
+    })
+  })
+
+  test('Chunk and new line', () => {
+    const currentParsing: ParsingType = {
+      openParens: 0,
+      openQuote: false,
+      partial: '',
+      status: 'START',
+    }
+    const jsonChunkParser = jsonChunkParserGenerator('{ "foo": "bar" }', currentParsing)
+    const result = jsonChunkParser.next()
+
+    const currentParsing2 = result.value
+    const jsonChunkParser2 = jsonChunkParserGenerator('\n', currentParsing2)
+    const result2 = jsonChunkParser2.next()
+
+    expect(result).toEqual({
+      value: {
+        openParens: 0,
+        openQuote: false,
+        partial: '{ "foo": "bar" }',
+        status: 'RECOGNIZED',
+      },
+      done: true,
+    })
+    expect(result2).toEqual({
+      value: {
+        openParens: 0,
+        openQuote: false,
+        partial: '',
+        status: 'PROGRESS',
+      },
+      done: true,
+    })
+  })
 })

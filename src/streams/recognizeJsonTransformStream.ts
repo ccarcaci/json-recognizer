@@ -1,4 +1,4 @@
-import stream from 'stream'
+import stream, { TransformCallback } from 'stream'
 import { initJsonRecognizer } from '../recognizer/initJsonRecognizer'
 
 const recognizeJsonTransformStream = (): stream.Transform => {
@@ -6,7 +6,7 @@ const recognizeJsonTransformStream = (): stream.Transform => {
   return new stream.Transform({
     readableObjectMode: true,
     writableObjectMode: true,
-    transform(chunk: string, _, callback) {
+    transform(chunk: string, _: BufferEncoding, callback: TransformCallback) {
       const jsons: Record<string, unknown>[] = parseChunkFunction(chunk)
       jsons.forEach((json) => this.push(json))
       callback()

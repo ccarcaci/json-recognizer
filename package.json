@@ -22,7 +22,7 @@
   "homepage": "https://github.com/ccarcaci/json-recognizer#readme",
   "devDependencies": {
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.11.59",
+    "@types/node": "^16.11.65",
     "jest": "^27.5.1",
     "ts-jest": "^27.1.5"
   },

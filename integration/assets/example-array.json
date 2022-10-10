@@ -18,15 +18,7 @@
     "registered": "2020-02-25T12:14:53 -01:00",
     "latitude": 72.505205,
     "longitude": 63.642761,
-    "tags": [
-      "deserunt",
-      "laboris",
-      "cillum",
-      "ea",
-      "nisi",
-      "pariatur",
-      "consectetur"
-    ],
+    "tags": ["deserunt", "laboris", "cillum", "ea", "nisi", "pariatur", "consectetur"],
     "friends": [
       {
         "id": 0,
@@ -63,15 +55,7 @@
     "registered": "2022-05-23T09:25:51 -02:00",
     "latitude": -14.639805,
     "longitude": 138.389506,
-    "tags": [
-      "proident",
-      "cillum",
-      "et",
-      "occaecat",
-      "culpa",
-      "proident",
-      "esse"
-    ],
+    "tags": ["proident", "cillum", "et", "occaecat", "culpa", "proident", "esse"],
     "friends": [
       {
         "id": 0,
@@ -108,15 +92,7 @@
     "registered": "2016-11-23T10:53:06 -01:00",
     "latitude": -10.576869,
     "longitude": 58.934905,
-    "tags": [
-      "excepteur",
-      "aute",
-      "dolore",
-      "dolor",
-      "ullamco",
-      "amet",
-      "cupidatat"
-    ],
+    "tags": ["excepteur", "aute", "dolore", "dolor", "ullamco", "amet", "cupidatat"],
     "friends": [
       {
         "id": 0,
@@ -153,15 +129,7 @@
     "registered": "2020-05-11T06:10:36 -02:00",
     "latitude": 81.418781,
     "longitude": 112.80414,
-    "tags": [
-      "elit",
-      "ipsum",
-      "qui",
-      "dolor",
-      "anim",
-      "dolor",
-      "sint"
-    ],
+    "tags": ["elit", "ipsum", "qui", "dolor", "anim", "dolor", "sint"],
     "friends": [
       {
         "id": 0,
@@ -198,15 +166,7 @@
     "registered": "2015-12-09T03:47:11 -01:00",
     "latitude": -79.279881,
     "longitude": -39.672747,
-    "tags": [
-      "in",
-      "cillum",
-      "minim",
-      "minim",
-      "velit",
-      "amet",
-      "excepteur"
-    ],
+    "tags": ["in", "cillum", "minim", "minim", "velit", "amet", "excepteur"],
     "friends": [
       {
         "id": 0,

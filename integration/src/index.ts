@@ -12,4 +12,4 @@ testMultipleChunks()
 testPartialJson()
 testInvalidJson()
 
-console.log('Integration tests done')
+console.log('Integration tests ran')

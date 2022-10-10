@@ -3,7 +3,20 @@ import { ParsingType } from '../types/ParsingType'
 function* jsonChunkParserGenerator(chunk: string, prevParsing: ParsingType): Generator<ParsingType, ParsingType> {
   let parsing: ParsingType = prevParsing
   let index = 0
-  const chunkTrimmed = chunk.trim()
+  let chunkTrimmed = chunk
+
+  if (!prevParsing.openQuote) {
+    chunkTrimmed = chunk.trim()
+  }
+
+  if (chunkTrimmed.length <= 0) {
+    return {
+      openParens: 0,
+      openQuote: false,
+      partial: '',
+      status: 'PROGRESS',
+    }
+  }
 
   while (index < chunkTrimmed.length) {
     const current = chunkTrimmed[index]

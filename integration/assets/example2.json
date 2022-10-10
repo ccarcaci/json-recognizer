@@ -17,15 +17,7 @@
   "registered": "2016-02-26T09:15:21 -01:00",
   "latitude": -62.948052,
   "longitude": 1.138903,
-  "tags": [
-    "ea",
-    "eu",
-    "ea",
-    "elit",
-    "cupidatat",
-    "veniam",
-    "consequat"
-  ],
+  "tags": ["ea", "eu", "ea", "elit", "cupidatat", "veniam", "consequat"],
   "friends": [
     {
       "id": 0,
