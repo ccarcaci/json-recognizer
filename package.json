@@ -5,6 +5,7 @@
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
+    "build": "npm install; tsc; cp LICENSE build; cp package.json build; cd build; npm pack --pack-destination ../integration",
     "test": "jest --passWithNoTests --runInBand --detectOpenHandles"
   },
   "repository": {
