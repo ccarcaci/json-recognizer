@@ -6,6 +6,7 @@
   "types": "index.d.ts",
   "scripts": {
     "build": "npm install; tsc; cp LICENSE build; cp package.json build; cd build; npm pack --pack-destination ../integration",
+    "buildPublish": "npm install; tsc; cp LICENSE build; cp package.json build; cd build; npm publish",
     "test": "jest --passWithNoTests --runInBand --detectOpenHandles"
   },
   "repository": {
