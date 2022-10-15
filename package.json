@@ -1,12 +1,12 @@
 {
   "name": "@bitacode/json-recognizer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Recognize JSONs inside string flow",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
     "build": "npm install; tsc; cp LICENSE build; cp package.json build; cd build; npm pack --pack-destination ../integration",
-    "buildPublish": "npm install; tsc; cp LICENSE build; cp package.json build; cd build; npm publish",
+    "buildPublish": "npm install; tsc; cp README.md build; cp LICENSE build; cp package.json build; cd build; npm publish --access public",
     "test": "jest --passWithNoTests --runInBand --detectOpenHandles"
   },
   "repository": {
